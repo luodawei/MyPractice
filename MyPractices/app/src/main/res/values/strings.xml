@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Practice</string>
+    <string name="list_item_title">她才是魔鬼与天使的宠儿！美得无可挑剔！！</string>
+    <string name="list_item_source">攀登科技</string>
+    <string name="list_item_date">10-07</string>
+    <string name="list_item_recommend">推荐</string>
+    <string-array name="test_item">
+        <item>test one</item>
+        <item>test two</item>
+        <item>test three</item>
+        <item>test four</item>
+    </string-array>
+</resources>
