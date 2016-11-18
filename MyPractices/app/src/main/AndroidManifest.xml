@@ -84,6 +84,12 @@
         </activity>
         <service android:name=".service.ServiceTwo"/>
         <activity android:name=".internet.InternetActivity">
+
+        </activity>
+        <activity android:name=".internet.StartSocket">
+
+        </activity>
+        <activity android:name=".thread.ThreadPractice">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
