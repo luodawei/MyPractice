@@ -28,7 +28,7 @@ public class StartSocket extends Activity {
                 new Thread(){
                     @Override
                     public void run() {
-                        startSocket();;
+                        startSocket();
                     }
                 };
             }

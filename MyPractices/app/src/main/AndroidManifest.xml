@@ -89,7 +89,7 @@
         <activity android:name=".internet.StartSocket">
 
         </activity>
-        <activity android:name=".thread.ThreadPractice">
+        <activity android:name=".webview.WebViewPractice">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
