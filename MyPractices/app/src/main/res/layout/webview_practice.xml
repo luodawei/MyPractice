@@ -23,6 +23,21 @@
             android:layout_height="wrap_content"
             android:text="load url http"/>
     </LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <Button
+            android:id="@+id/insert_js"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="insert js"/>
+        <Button
+            android:id="@+id/insert_client"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="insert client"
+            android:onClick="insertClick"/>
+    </LinearLayout>
     <WebView
         android:id="@+id/webview_demo"
         android:layout_width="wrap_content"
