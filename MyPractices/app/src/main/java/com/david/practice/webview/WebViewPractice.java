@@ -133,7 +133,7 @@ public class WebViewPractice extends Activity {
     public class MyWebAppInterface{
         @JavascriptInterface
         public void jsInvokeJava(){
-
+            
         }
     }
 }
