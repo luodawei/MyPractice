@@ -50,7 +50,7 @@
         <activity android:name=".event.MyActivity">
 
         </activity>
-        <activity android:name=".Intentpractice.ActivityOne">
+        <activity android:name=".selectportrait.SelectPortrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
