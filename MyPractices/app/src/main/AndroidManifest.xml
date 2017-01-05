@@ -50,8 +50,12 @@
         <activity android:name=".event.MyActivity">
 
         </activity>
-        <activity android:name=".event.MyViewPractice">
+        <activity android:name=".Intentpractice.ActivityOne">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
 
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
         </activity>
         <activity android:name=".sharedpreferences.SharedPreferencesPractice">
 
@@ -83,19 +87,15 @@
 
         </activity>
         <service android:name=".service.ServiceTwo"/>
-        <activity android:name=".internet.InternetActivity">
-
-        </activity>
+        <activity android:name=".internet.InternetActivity"/>
         <activity android:name=".internet.StartSocket">
 
         </activity>
-        <activity android:name=".webview.WebViewPractice">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+        <activity android:name=".splash.SplashActivity">
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
+        <activity android:name=".GuideActivity"/>
+        <activity android:name=".Intentpractice.ActivityTwo"/>
     </application>
 
 </manifest>

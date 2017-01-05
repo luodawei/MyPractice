@@ -4,5 +4,10 @@
     android:layout_height="match_parent"
     android:id="@+id/internet_layout"
     android:orientation="vertical">
-
+    <ImageView
+        android:id="@+id/internet_img"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scaleType="centerInside"
+        android:src="@mipmap/item_img_three"/>
 </LinearLayout>

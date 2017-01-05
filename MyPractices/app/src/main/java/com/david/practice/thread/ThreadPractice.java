@@ -42,9 +42,7 @@ public class ThreadPractice extends Activity {
         btnThread.setOnClickListener(onClickListener);
         btnSyn.setOnClickListener(onClickListener);
         list = new ArrayList<News>();
-
     }
-
     View.OnClickListener onClickListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
@@ -111,7 +109,6 @@ public class ThreadPractice extends Activity {
     };
 
     public class MyAsyncTask extends AsyncTask<String,Integer,String> {
-
         @Override
         protected String doInBackground(String... params) {//执行耗时操作，不进行UI操作
             StringBuilder stringBuilder = new StringBuilder();//可变字符序列

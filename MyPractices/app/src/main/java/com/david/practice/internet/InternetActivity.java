@@ -1,12 +1,17 @@
 package com.david.practice.internet;
 
 import android.app.Activity;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.os.Environment;
+import android.os.Handler;
+import android.os.Message;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 import com.david.practice.R;
@@ -35,11 +40,13 @@ import java.net.UnknownHostException;
  */
 public class InternetActivity extends Activity {
     LinearLayout internetLayout;
+    ImageView internetImg;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_internet);
         internetLayout = (LinearLayout) findViewById(R.id.internet_layout);
+        internetImg = (ImageView) findViewById(R.id.internet_img);
         String[] name = {"InetAddress","getData","demoGet","demoPost"};
         for(int i = 0;i<name.length;i++){
             Button button = new Button(this);
@@ -49,8 +56,22 @@ public class InternetActivity extends Activity {
             button.setOnClickListener(getOnClickListener());
             internetLayout.addView(button);
         }
+        new Thread(){
+            @Override
+            public void run() {
+                getImg();
+                handler.sendEmptyMessage(1);
+            }
+        }.start();
 
     }
+    Handler handler = new Handler(){
+        @Override
+        public void handleMessage(Message msg) {
+            if (bitmap!=null)
+            internetImg.setImageBitmap(bitmap);
+        }
+    };
     String params = "\"{\n" +
             "\"params\": [\n" +
             "    {\n" +
@@ -151,7 +172,31 @@ public class InternetActivity extends Activity {
             e.printStackTrace();
         }
     }
-
+    Bitmap bitmap;
+    public void getImg(){
+        HttpURLConnection httpURLConnection = null;
+        String httpURI = "http://img01.sogoucdn.com/app/a/100520093/2ad11b094c93197d-4afaf786506af54b-9fd277aea03c8387ebd35dcfba4ba3dd.jpg";
+        try {
+            URL url = new URL(httpURI);
+            httpURLConnection = (HttpURLConnection)url.openConnection();
+            httpURLConnection.setRequestMethod("GET");
+            httpURLConnection.setConnectTimeout(5000);
+            httpURLConnection.connect();
+            if (httpURLConnection.getResponseCode() == 200){
+                InputStream inputStream = httpURLConnection.getInputStream();
+                bitmap = BitmapFactory.decodeStream(inputStream);
+                inputStream.close();
+            }else {
+                Log.i("请求失败","状态码为："+httpURLConnection.getResponseCode());
+            }
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
     public void demoInetAddress(){
         try {
             InetAddress inetAddress = InetAddress.getByName("www.baidu.com");
@@ -163,7 +208,6 @@ public class InternetActivity extends Activity {
             e.printStackTrace();
         }
     }
-
     private View.OnClickListener getOnClickListener(){
         View.OnClickListener onClickListener = new View.OnClickListener() {
             @Override
